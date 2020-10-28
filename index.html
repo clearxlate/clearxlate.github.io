@@ -1,0 +1,30 @@
+
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
+<style>
+body {
+  background: #466368;
+  background: radial-gradient(at top left,#648880, #293f50);
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 30vw;
+  font-family: 'Titillium Web', sans-serif;
+  transform: translate(-50%, -50%);
+}
+</style>
+
+</head>
+<!-- <img src="images/raspi_logo.png" class="centered"> -->
+<script type="text/javascript">
+dt1 = new Date("08/02/2020"); <!-- note that 07-28 may be relevant BDMA -->
+dt2 = new Date();
+Result = Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
+document.write("<div class=centered>" + Result + "</div>");
+</script>
+</body>
+</html>
+
