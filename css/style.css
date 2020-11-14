@@ -1,0 +1,32 @@
+* {
+//	border: dashed green 1px;
+}
+body {
+  background: #473e3e;
+  background: radial-gradient(ellipse farthest-corner at top left, #473e3e, 60%, #0400ff, #000000);
+}
+
+.wrapper div {
+  position:relative;
+  height: 50vh;
+  float:left;
+  width:33.33%;
+}
+
+.wrapper div:nth-child(1) {
+	width: 100%;
+}
+
+
+.test {
+  text-align: center;
+  font-size:35vw;
+  font-weight:300;
+  margin:0;
+  width:100%;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-family: 'Titillium Web', sans-serif;
+}
+
