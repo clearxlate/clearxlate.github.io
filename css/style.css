@@ -5,32 +5,40 @@
 }
 */
 
+
 body {
   background: #473e3e;
   background: radial-gradient(ellipse farthest-corner at top left, #473e3e, 60%, #0400ff, #000000);
+  font-family: arial,sans-serif;
 }
 
+hr {
+  border: 0;
+  height: 0;
+  box-shadow: 0 0 10px 2px black;
+}
 
 .container {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: right;
+  justify-content: space-around;
   flex-wrap: wrap;
   height: 90vh;
 }
 
 .container div {
-//  border: 1px solid red;
-//  position:relative;
-//  height: 50vh;
-//  float:left;
-  width:33.33%;
+  align-items: center;
+  height: 100%;
+  width:40%;
 }
 
+/*
 .container div:nth-child(1) {
 	width: 220px;
 }
+
 .container div:nth-child:(2) {
+    height: 10px;
 	flex-grow: 1;
 
 }
@@ -38,7 +46,7 @@ body {
 .container div:nth-child(3) {
 	width: 100%;
 }
-
+*/
 
 h1 {
   font-size: 14em;
@@ -49,6 +57,25 @@ h1 {
   font-family: 'Big Shoulders Stencil Text', cursive;
 }
 h1:hover {
-  color: #111;
+  color: #311;
   text-shadow: none;
+}
+
+.blurries {
+//  font-size: 6em;
+  text-align: right;
+  color: transparent;
+  text-shadow: #111 0 0 12px;
+  transition: 0.4s;
+  font-family: 'Big Shoulders Stencil Text', cursive;
+} 
+.blurries:hover {
+  color: #311;
+  text-shadow: none;
+}
+
+.footer {
+//  text-shadow: #111 0 0 8px;
+//  color: transparent;
+  text-align: right;
 }
