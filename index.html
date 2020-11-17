@@ -1,18 +1,22 @@
 <html>
-<head>
-<link type="text/css" rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&display=swap" rel="stylesheet">
+    </head>
 <body>
-
-<h1 class="test">
-<script>
-dt1 = new Date("08/02/2020");
-dt2 = new Date();
-Result = Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
-document.write(Result);
-</script>
-</h1>
+<div class="container">
+	<div id="iddays">
+		<script>
+		dt1 = new Date("08/02/2020");
+		dt2 = new Date();
+		Result = Math.floor((Date.UTC(dt2.getFullYear(), dt2.getMonth(), dt2.getDate()) - Date.UTC(dt1.getFullYear(), dt1.getMonth(), dt1.getDate())) / (1000 * 60 * 60 * 24));
+		document.write(Result);
+		document.getElementById("iddays").innerHTML = "<h1>" + Result + "</h1>";
+		</script>
+	</div>
+</div>
 
 </body>
 </html>
