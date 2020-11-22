@@ -1,9 +1,9 @@
 
-/*
+
 * {
 	border: dashed green 1px;
 }
-*/
+
 
 
 body {
@@ -68,7 +68,7 @@ h1:hover {
   text-shadow: #111 0 0 12px;
   transition: 0.4s;
   font-family: 'Big Shoulders Stencil Text', cursive;
-} 
+}
 .blurries:hover {
   color: #311;
   text-shadow: none;
