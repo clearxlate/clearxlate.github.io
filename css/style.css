@@ -5,9 +5,9 @@
 } */
 
 body {
-  background: #473e3e;
-  background: radial-gradient(ellipse farthest-corner at top left, #473e3e, 60%, #0400ff, #000000);
-  font-family: 'Roboto', sans-sans-serif;
+//  background: #473e3e;
+//  background: radial-gradient(ellipse farthest-corner at top left, #473e3e, 60%, #0400ff, #000000);
+//  font-family: 'Roboto', sans-sans-serif;
 }
 
 .container {
