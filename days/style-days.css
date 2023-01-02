@@ -1,0 +1,16 @@
+body {
+  background: rgb(139, 122, 122);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 90vh;
+  font-size: 70vh;
+}
+
+.iddays {
+    font-size: 80vw;
+}
