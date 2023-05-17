@@ -1,13 +1,15 @@
 body {
-  background: rgb(139, 122, 122);
+  display: flex;
+  justify-content: center;
+  background: rgb(0, 0, 0);
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   max-width: 450px;
-  background-color: rgb(233, 223, 50);
-  /* flex-direction: column; */
+  background-color: rgb(185, 176, 22);
+  /* flex-direction: column; */ 
   align-items: center;
   justify-content: center;
 }
@@ -15,15 +17,22 @@ body {
 .container > div {
   background-color: #f1f1f1;
 //  max-width: 450px;
-  width: auto;
   margin: 10px;
   text-align: center;
   line-height: 75px;
   font-size: 30px;
-  padding: 10px;
+  padding: 20px;
 }
 
 
 .iddays {
     font-size: 80vw;
+}
+
+.rb-stripes {
+  background-image: linear-gradient(135deg, #f2ff00 25%, #000000 25%, #000000 50%, #f2ff00 50%, #f2ff00 75%, #000000 75%, #000000 100%);
+  background-size: 156.57px 156.57px;
+  color:azure;
+  width: 100%;
+  text-shadow: 2px 2px 4px #ff0000;
 }
