@@ -30,6 +30,10 @@ body {
 	transition: 0.5s;
 }
 
+.iddays {
+  font-size: 80vw;
+}
+
 .footer {
 //  text-shadow: #111 0 0 8px;
 //  color: transparent;

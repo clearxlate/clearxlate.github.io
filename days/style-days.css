@@ -1,27 +1,34 @@
 body {
   display: flex;
   justify-content: center;
-  background: rgb(0, 0, 0);
+  background: rgb(133, 133, 133);
 }
+
+.blurries {
+	font-size: 6em;
+  color: transparent;
+  text-shadow: #111 0 0 14px;
+  transition: 0.6s;
+}
+.blurries:hover {
+  color: #311;
+  text-shadow: none;
+	transition: 0.5s;
+}
+
+
+
+
+
+
+
 
 .container {
   display: flex;
-  flex-wrap: wrap;
-  max-width: 450px;
-  background-color: rgb(185, 176, 22);
-  /* flex-direction: column; */ 
   align-items: center;
   justify-content: center;
-}
-
-.container > div {
-  background-color: #f1f1f1;
-//  max-width: 450px;
-  margin: 10px;
-  text-align: center;
-  line-height: 75px;
-  font-size: 30px;
-  padding: 20px;
+  flex-wrap: wrap;
+  height: 90vh;
 }
 
 
@@ -29,10 +36,3 @@ body {
     font-size: 80vw;
 }
 
-.rb-stripes {
-  background-image: linear-gradient(135deg, #f2ff00 25%, #000000 25%, #000000 50%, #f2ff00 50%, #f2ff00 75%, #000000 75%, #000000 100%);
-  background-size: 156.57px 156.57px;
-  color:azure;
-  width: 100%;
-  text-shadow: 2px 2px 4px #ff0000;
-}
