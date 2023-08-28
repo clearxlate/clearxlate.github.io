@@ -4,11 +4,7 @@
 	border: dashed green 1px;
 } */
 
-body {
-  background: #dfdfdf;
-//  background: radial-gradient(ellipse farthest-corner at top left, #473e3e, 60%, #0400ff, #000000);
-//  font-family: 'Roboto', sans-sans-serif;
-}
+body { background: #dfdfdf; }
 
 .container {
   display: flex;
@@ -34,8 +30,4 @@ body {
   font-size: 80vw;
 }
 
-.footer {
-//  text-shadow: #111 0 0 8px;
-//  color: transparent;
-  text-align: right;
-}
+.footer { text-align: right; }
