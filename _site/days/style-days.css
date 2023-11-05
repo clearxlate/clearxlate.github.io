@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  justify-content: center;
+  background: rgb(133, 133, 133);
+}
+
+.blurries {
+	font-size: 6em;
+  color: transparent;
+  text-shadow: #111 0 0 14px;
+  transition: 0.6s;
+}
+.blurries:hover {
+  color: #311;
+  text-shadow: none;
+	transition: 0.5s;
+}
+
+
+
+
+
+
+
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 90vh;
+}
+
+
+.iddays {
+    font-size: 80vw;
+}
+
