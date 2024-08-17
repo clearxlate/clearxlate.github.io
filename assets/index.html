@@ -1,14 +1,32 @@
 <html>
     <head>
         <link type="text/css" rel="stylesheet" href="css/style.css">
+        <style>
+            .parent {
+                background-color: brown;
+                height: 400px;
+                width: 400px;
+            }
+            .child {
+                background-color: red;
+                height: 50%;
+                width: 50%;
+                transition: 1s;
+            }
+            .parent:hover .child {
+                <!-- transform: translateX(100%); -->
+                height: 100%;
+                width: 100%;
+            }
+
+        </style>
     </head>
 <body>
-<div class="container">
-	<div id="iddays" class="blurries">
-		<script src="days.js"></script>
-	</div>
+<div class="parent">
+    <div class="child">asdf</div>
 </div>
+
+
 
 </body>
 </html>
-<!-- 11-04-00 -->
