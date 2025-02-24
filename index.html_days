@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+<div class="container">
+	<div id="iddays" class="blurries">
+		<script src="days.js"></script>
+	</div>
+</div>
+
+</body>
+</html>
+<!-- 11-04-00 -->
+
+

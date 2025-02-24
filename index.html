@@ -1,16 +1,39 @@
-<html>
-    <head>
-        <link type="text/css" rel="stylesheet" href="css/style.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Static Route - Pirate Style</title>
+    <style>
+        body {
+            background-color: #001a00; /* Dark green background */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .quote {
+            font-size: 1.5em;
+            width: 60%;
+            opacity: 0.3;
+            animation: fadeInOut 10s infinite ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+            100% { opacity: 0.3; }
+        }
+    </style>
+</head>
 <body>
-<div class="container">
-	<div id="iddays" class="blurries">
-		<script src="days.js"></script>
-	</div>
-</div>
-
+    <div class="quote">
+        "Ah, my friend, in the seas, we always have <strong>backup plans</strong>—just like a <strong>floating static route</strong>! You see, when we chase a <strong>big cargo ship</strong>, we first use the <strong>main route</strong>—the fast boats, the best way. But what if the <strong>Navy patrols</strong> block us? Aha! We have <strong>another way</strong>, a <strong>backup plan</strong>, waiting <strong>quietly</strong> until needed.<br><br>
+        This is how a <strong>floating static route</strong> works! The network always follows the <strong>best path</strong> first, but if that way is <strong>blocked</strong> (down), the backup route <strong>takes over</strong>. We set it with a <strong>higher priority number</strong> so it is only used when needed—just like keeping an extra speedboat hidden in case of trouble. Smart pirates, smart networks!"
+    </div>
 </body>
 </html>
-<!-- 11-04-00 -->
-
 
