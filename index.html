@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Style</title>
+    <title>HTML Document</title>
     <style>
         body {
             background-color: #001a00; /* Dark green background */
@@ -23,9 +23,12 @@
             animation: fadeInOut 10s infinite ease-in-out;
         }
         @keyframes fadeInOut {
-            0% { opacity: 0.3; }
-            50% { opacity: 0.6; }
-            100% { opacity: 0.3; }
+            10%, 20%, 25%, 54%, 56%, 100% {
+            opacity: 1;
+        }
+            19%, 34%, 55%, 95% {
+            opacity: 0.2;
+            }
         }
     </style>
 </head>
