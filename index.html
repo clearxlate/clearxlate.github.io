@@ -35,7 +35,793 @@
 <body>
     <div class="quote">
     <h1>----</h1>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Something Is Moving</title>
+  <meta name="description" content="A fast, modern landing page for something important, useful, and hard to describe." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.12);
+      --text: #eef2ff;
+      --muted: #a7b0d6;
+      --accent: #7c9cff;
+      --accent-2: #8ef0d0;
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(124,156,255,0.18), transparent 34%),
+        radial-gradient(circle at 80% 20%, rgba(142,240,208,0.12), transparent 28%),
+        linear-gradient(180deg, #09101d 0%, #0b1020 45%, #0e1530 100%);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(11, 16, 32, 0.62);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 74px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 2.2rem;
+      height: 2.2rem;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 8px 24px rgba(124,156,255,0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: 13px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.35), rgba(255,255,255,0.08));
+      mix-blend-mode: screen;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .button,
+    button {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.95rem 1.3rem;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+    }
+
+    .button:hover,
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #08101f;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      box-shadow: 0 14px 34px rgba(124,156,255,0.28);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .hero {
+      padding: 4.8rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.5rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dbe4ff;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow-dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 6px rgba(142,240,208,0.12);
+    }
+
+    h1, h2, h3 { line-height: 1.05; margin: 0; }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      letter-spacing: -0.05em;
+      max-width: 12ch;
+    }
+
+    .hero-copy p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin: 1.2rem 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.8rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.1rem;
+      margin-top: 1.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      padding: 1.2rem;
+      border-radius: calc(var(--radius) + 6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    .signal-panel {
+      position: relative;
+      overflow: hidden;
+      min-height: 470px;
+      display: grid;
+      align-content: end;
+    }
+
+    .signal-panel::before,
+    .signal-panel::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(10px);
+    }
+
+    .signal-panel::before {
+      width: 220px;
+      height: 220px;
+      top: 40px;
+      right: -30px;
+      background: radial-gradient(circle, rgba(124,156,255,0.6), rgba(124,156,255,0.02));
+    }
+
+    .signal-panel::after {
+      width: 180px;
+      height: 180px;
+      bottom: 100px;
+      left: -30px;
+      background: radial-gradient(circle, rgba(142,240,208,0.45), rgba(142,240,208,0.02));
+    }
+
+    .signal-stack {
+      position: relative;
+      display: grid;
+      gap: 1rem;
+      z-index: 1;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.05rem;
+      border-radius: 18px;
+      background: rgba(8, 13, 28, 0.5);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.15rem;
+      letter-spacing: -0.03em;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .metric-badge {
+      white-space: nowrap;
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(142,240,208,0.12);
+      color: #dff9ef;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .logo-row {
+      padding: 1.5rem 0 1rem;
+    }
+
+    .logo-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.85rem;
+    }
+
+    .logo-item {
+      padding: 1rem;
+      text-align: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #c6cdef;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.045em;
+      margin-bottom: 0.9rem;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .feature-card,
+    .quote-card,
+    .cta-panel {
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card {
+      padding: 1.35rem;
+    }
+
+    .feature-icon {
+      width: 3rem;
+      height: 3rem;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, rgba(124,156,255,0.26), rgba(142,240,208,0.18));
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 1.2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.28rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.55rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .panel {
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 0.95rem;
+      padding: 0;
+      margin: 1.2rem 0 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      color: var(--muted);
+    }
+
+    .check-list strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 0.18rem;
+    }
+
+    .check {
+      flex: 0 0 auto;
+      width: 1.55rem;
+      height: 1.55rem;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: rgba(142,240,208,0.12);
+      color: var(--accent-2);
+      font-size: 0.9rem;
+      margin-top: 0.1rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      padding: 1.15rem;
+      border-radius: 18px;
+      background: rgba(8, 13, 28, 0.55);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .quote-card {
+      padding: 1.35rem;
+    }
+
+    .quote-card p {
+      margin: 0 0 1rem;
+      color: #e6ebff;
+      font-size: 1rem;
+    }
+
+    .quote-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .cta-panel {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1rem;
+      align-items: center;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(124,156,255,0.18), transparent 36%),
+        radial-gradient(circle at 100% 100%, rgba(142,240,208,0.15), transparent 32%),
+        rgba(255,255,255,0.06);
+    }
+
+    .cta-panel h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.045em;
+      margin-bottom: 0.8rem;
+    }
+
+    .cta-panel p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 52ch;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.8rem;
+    }
+
+    .mini-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .site-footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.4rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .cta-panel,
+      .features,
+      .quotes {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 3.5rem;
+      }
+
+      .signal-panel {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 1.2rem), var(--max));
+      }
+
+      .hero-actions,
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .logo-strip,
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button,
+      button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Driftline</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#benefits">Why it works</a>
+        <a href="#proof">Proof</a>
+        <a href="#move">Take the next step</a>
+      </nav>
+      <a class="button button-primary" href="#move">Get Early Access</a>
     </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            Quiet momentum for teams that need clarity
+          </div>
+          <h1 id="hero-title">Make the important part feel obvious.</h1>
+          <p>
+            Driftline helps people move from scattered effort to visible progress without adding noise,
+            friction, or another complicated layer. It feels immediate, adaptable, and strangely overdue.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#move">Start Something Better</a>
+            <a class="button button-secondary" href="#benefits">See What Changes</a>
+          </div>
+          <div class="hero-meta" aria-label="Highlights">
+            <span>Fast to adopt</span>
+            <span>Built for momentum</span>
+            <span>Useful from day one</span>
+          </div>
+        </div>
+
+        <aside class="hero-card signal-panel" aria-label="Preview panel">
+          <div class="signal-stack">
+            <div class="metric">
+              <div>
+                <strong>Signals, not clutter</strong>
+                <span>Everything points toward the next meaningful move.</span>
+              </div>
+              <span class="metric-badge">Live shift</span>
+            </div>
+            <div class="metric">
+              <div>
+                <strong>Fewer resets</strong>
+                <span>Momentum stays intact across teams, tasks, and timing.</span>
+              </div>
+              <span class="metric-badge">+42% flow</span>
+            </div>
+            <div class="metric">
+              <div>
+                <strong>Clearer outcomes</strong>
+                <span>Progress becomes visible before people ask where things stand.</span>
+              </div>
+              <span class="metric-badge">Always on</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="logo-row" aria-label="Trusted by modern teams">
+      <div class="container">
+        <div class="logo-strip">
+          <div class="logo-item">Northstar</div>
+          <div class="logo-item">Quiet Form</div>
+          <div class="logo-item">Vector House</div>
+          <div class="logo-item">Motive Lab</div>
+          <div class="logo-item">Open Field</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefits" aria-labelledby="benefits-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="benefits-title">Built to feel specific, flexible, and immediately useful.</h2>
+          <p>
+            The value is easy to describe and hard to replace: less drag, more confidence, and a smoother path
+            from intention to result.
+          </p>
+        </div>
+
+        <div class="features">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">◌</div>
+            <h3>Start with clarity</h3>
+            <p>
+              Replace vague effort with a shared sense of direction so each next step feels smaller, faster, and more certain.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">△</div>
+            <h3>Keep momentum visible</h3>
+            <p>
+              Surface movement early so progress is felt across the room, not hidden behind updates, waiting, and guesswork.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">✦</div>
+            <h3>Scale without noise</h3>
+            <p>
+              Grow from one useful habit into a repeatable advantage without turning the process into a process.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="outcomes-title">
+      <div class="container split">
+        <div class="panel">
+          <div class="section-header" style="margin-bottom: 0;">
+            <h2 id="outcomes-title">What people notice first</h2>
+            <p>
+              The shift is subtle at first, then obvious: things move, people align, and the signal gets stronger over time.
+            </p>
+          </div>
+          <ul class="check-list">
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              <div>
+                <strong>Less rework</strong>
+                Fewer loops, fewer resets, and fewer moments where everyone pauses to interpret what should happen next.
+              </div>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              <div>
+                <strong>Better timing</strong>
+                Action happens earlier because the right cues show up before momentum fades.
+              </div>
+            </li>
+            <li>
+              <span class="check" aria-hidden="true">✓</span>
+              <div>
+                <strong>More confidence</strong>
+                Teams stop second-guessing whether they are moving in the right direction and start building on visible progress.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel" aria-label="Key performance indicators">
+          <div class="section-header" style="margin-bottom: 0.8rem;">
+            <h2 style="font-size: clamp(1.8rem, 4vw, 2.8rem);">Measured where it matters</h2>
+            <p>Not everything needs a number. The right things do.</p>
+          </div>
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>3.4×</strong>
+              <span>faster movement from idea to visible traction</span>
+            </div>
+            <div class="stat">
+              <strong>61%</strong>
+              <span>fewer stalled handoffs in early workflows</span>
+            </div>
+            <div class="stat">
+              <strong>92%</strong>
+              <span>say it feels easier than what they used before</span>
+            </div>
+            <div class="stat">
+              <strong>11 days</strong>
+              <span>to feel the difference in a meaningful way</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof" aria-labelledby="proof-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="proof-title">Trusted by people who needed something to change.</h2>
+          <p>
+            Different teams describe it differently, but the pattern is the same: less friction, stronger direction, better outcomes.
+          </p>
+        </div>
+
+        <div class="quotes">
+          <article class="quote-card">
+            <p>
+              “It felt like we stopped pushing and started moving. That was the difference.”
+            </p>
+            <div class="quote-meta">Head of Operations · Northstar Collective</div>
+          </article>
+
+          <article class="quote-card">
+            <p>
+              “Hard to explain in one sentence. Easy to notice once it is in place.”
+            </p>
+            <div class="quote-meta">Strategy Lead · Motive Lab</div>
+          </article>
+
+          <article class="quote-card">
+            <p>
+              “The team aligned faster, updates got shorter, and the right work surfaced sooner.”
+            </p>
+            <div class="quote-meta">Product Director · Open Field Group</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="move" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-panel">
+          <div>
+            <h2 id="cta-title">There is probably a better way to do this. This may be it.</h2>
+            <p>
+              Join the teams building with more clarity, fewer delays, and a stronger sense of what matters next.
+              Start now, stay vague in public, and get specific where it counts.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a class="button button-primary">Request Access</a>
+            <!--<a class="button button-primary" href="mailto:hello@example.com?subject=Tell%20me%20more%20about%20Driftline">Request Access</a> -->
+            <a class="button button-secondary" href="#top">See It Again</a>
+            <div class="mini-note">No pressure. Just momentum.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>Driftline © 2026</div>
+      <div>Designed for speed, clarity, and deliberate ambiguity.</div>
+    </div>
+  </footer>
 </body>
 </html>
-
