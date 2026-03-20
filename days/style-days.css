@@ -16,23 +16,13 @@ body {
 	transition: 0.5s;
 }
 
-
-
-
-
-
-
-
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   height: 90vh;
+  font-size: 40vw;
 }
 
-
-.iddays {
-    font-size: 80vw;
-}
 
